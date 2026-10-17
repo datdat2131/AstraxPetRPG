@@ -18,7 +18,31 @@
  </dependencies>
  <build>
   <finalName>AstraxPetRPG-${project.version}</finalName>
+  <!-- Bố cục phẳng: file .java và .yml nằm ngay thư mục gốc của repo -->
+  <sourceDirectory>${project.basedir}</sourceDirectory>
+  <resources>
+   <resource>
+    <directory>${project.basedir}</directory>
+    <includes>
+     <include>plugin.yml</include>
+     <include>config.yml</include>
+    </includes>
+   </resource>
+  </resources>
   <plugins>
+   <plugin>
+    <groupId>org.apache.maven.plugins</groupId><artifactId>maven-enforcer-plugin</artifactId><version>3.5.0</version>
+    <executions><execution><id>check-source-files</id><phase>validate</phase><goals><goal>enforce</goal></goals>
+     <configuration><rules><requireFilesExist>
+       <message>THIEU FILE: hay upload du cac file .java va plugin.yml len thu muc goc cua repo.</message>
+       <files>
+        <file>${project.basedir}/plugin.yml</file>
+        <file>${project.basedir}/config.yml</file>
+        <file>${project.basedir}/SoulPetsPlugin.java</file>
+        <file>${project.basedir}/PetType.java</file>
+       </files>
+     </requireFilesExist></rules></configuration></execution></executions>
+   </plugin>
    <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-compiler-plugin</artifactId><version>3.14.0</version><configuration><release>21</release></configuration></plugin>
    <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-shade-plugin</artifactId><version>3.6.0</version>
     <executions><execution><phase>package</phase><goals><goal>shade</goal></goals>

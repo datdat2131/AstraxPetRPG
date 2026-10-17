@@ -1,0 +1,19 @@
+name: AstraxPetRPG
+version: 1.2.0
+main: vn.soulpets.SoulPetsPlugin
+api-version: '1.21'
+description: Astrax Pet RPG - bộ sưu tập pet, gacha, tiến hóa, buff thụ động và kỹ năng.
+commands:
+  pet:
+    description: Quản lý pet của bạn.
+    usage: /pet <menu|summon|dismiss|info|skill|select|collection|gacha|souls|top|rename|help>
+    permission: soulpets.use
+  petadmin:
+    description: Quản trị Astrax Pet RPG.
+    usage: /petadmin <give|xp|souls|reload>
+    permission: soulpets.admin
+permissions:
+  soulpets.use:
+    default: true
+  soulpets.admin:
+    default: op

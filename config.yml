@@ -1,0 +1,36 @@
+settings:
+  xp-per-monster-kill: 10      # XP pet nhận mỗi quái bạn hạ
+  souls-per-kill: 5            # Linh Hồn nhận mỗi quái (dùng để quay gacha)
+  starting-souls: 100          # Linh Hồn tặng người chơi mới
+  skill-cooldown-seconds: 8    # Hồi chiêu /pet skill
+  follow-distance: 3.0
+  teleport-distance: 14.0
+  skill-range: 8.0
+  base-skill-damage: 3.0
+  damage-per-level: 0.35
+  autosave-minutes: 5
+  auto-respawn: true           # Tự gọi lại pet nếu bị mất
+  auto-summon-on-join: false   # Tự triệu hồi pet khi vào server
+
+auto-skill:
+  enabled: true                # Pet tự tấn công/hồi máu theo chu kỳ
+  interval-seconds: 4
+  damage-multiplier: 0.4
+
+passive:
+  enabled: true                # Pet đang triệu hồi cho buff thụ động
+  health-per-level: 0.05
+  max-health-bonus: 20.0
+  speed-per-level: 0.001
+  damage-per-level: 0.02
+  max-damage-bonus: 6.0
+
+gacha:
+  cost-souls: 100
+  duplicate-xp: 150            # Quay trúng pet đã có -> cộng XP
+  broadcast-rare: true         # Thông báo toàn server khi ra Sử Thi / Huyền Thoại
+  weights:
+    common: 60
+    rare: 28
+    epic: 10
+    legendary: 2
