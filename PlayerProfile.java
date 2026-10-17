@@ -9,7 +9,7 @@ public final class PlayerProfile {
     private final UUID owner;
     private final Map<PetType, PetEntry> pets = new EnumMap<>(PetType.class);
     private PetType selected;
-    private int souls;
+    private int souls;\n    private int pityCount;
 
     public PlayerProfile(UUID owner, PetType selected, int souls) {
         this.owner = owner;
@@ -20,7 +20,7 @@ public final class PlayerProfile {
     public UUID owner() { return owner; }
     public Map<PetType, PetEntry> pets() { return pets; }
     public PetType selected() { return selected; }
-    public int souls() { return souls; }
+    public int souls() { return souls; }\n    public int pityCount() { return pityCount; }\n    public void setPityCount(int value) { pityCount = Math.max(0, value); }\n    public void incrementPity() { pityCount++; }\n    public void resetPity() { pityCount = 0; }
 
     public boolean has(PetType type) { return pets.containsKey(type); }
     public PetEntry entry(PetType type) { return pets.get(type); }

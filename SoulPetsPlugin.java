@@ -65,6 +65,7 @@ public final class SoulPetsPlugin extends JavaPlugin implements Listener, Comman
         buffHealthKey = new NamespacedKey(this, "pet_buff_health");
         buffSpeedKey = new NamespacedKey(this, "pet_buff_speed");
         buffDamageKey = new NamespacedKey(this, "pet_buff_damage");
+        new OptionalPluginHooks(this).detect();
         storage = new PetStorage(this);
         try {
             storage.open();
@@ -91,7 +92,7 @@ public final class SoulPetsPlugin extends JavaPlugin implements Listener, Comman
         Bukkit.getScheduler().runTaskTimer(this, this::tickPets, 20L, 20L);
         long autosave = Math.max(1, getConfig().getInt("settings.autosave-minutes", 5)) * 60L * 20L;
         Bukkit.getScheduler().runTaskTimer(this, this::saveAll, autosave, autosave);
-        getLogger().info("Astrax Pet RPG 1.2.0 enabled.");
+        getLogger().info("Astrax Pet RPG 2.0.0 enabled.");
     }
 
     @Override public void onDisable() {
@@ -509,7 +510,17 @@ public final class SoulPetsPlugin extends JavaPlugin implements Listener, Comman
                     + ". Hãy diệt quái để kiếm thêm!");
             return;
         }
-        PetRarity rarity = rollRarity();
+        int pityLimit = Math.max(1, getConfig().getInt("gacha.pity-epic", 30));
+        PetRarity rarity;
+        if (profile.pityCount() >= pityLimit - 1) {
+            List<PetRarity> guaranteed = Arrays.stream(PetRarity.values())
+                    .filter(r -> r.ordinal() >= PetRarity.EPIC.ordinal() && weight(r) > 0).toList();
+            rarity = guaranteed.isEmpty() ? PetRarity.EPIC : guaranteed.get(random.nextInt(guaranteed.size()));
+        } else {
+            rarity = rollRarity();
+        }
+        if (rarity.ordinal() >= PetRarity.EPIC.ordinal()) profile.resetPity();
+        else profile.incrementPity();
         List<PetType> pool = new ArrayList<>();
         for (PetType type : PetType.values()) if (type.rarity() == rarity) pool.add(type);
         PetType type = pool.get(random.nextInt(pool.size()));
@@ -525,7 +536,7 @@ public final class SoulPetsPlugin extends JavaPlugin implements Listener, Comman
             player.sendMessage(ChatColor.GREEN + "Bạn nhận được pet mới: " + rarity.color() + "[" + rarity.display() + "] "
                     + type.color() + type.display() + ChatColor.GREEN + "!");
             if (getConfig().getBoolean("gacha.broadcast-rare", true)
-                    && (rarity == PetRarity.EPIC || rarity == PetRarity.LEGENDARY)) {
+                    && (rarity.ordinal() >= PetRarity.EPIC.ordinal())) {
                 Bukkit.broadcastMessage(ChatColor.GOLD + player.getName() + ChatColor.YELLOW + " vừa quay được pet "
                         + rarity.color() + rarity.display() + " " + type.color() + type.display() + ChatColor.YELLOW + "!");
             }
@@ -691,7 +702,16 @@ public final class SoulPetsPlugin extends JavaPlugin implements Listener, Comman
             case "info" -> showInfo(player);
             case "skill" -> useSkill(player);
             case "collection", "list" -> openCollection(player);
-            case "gacha", "roll" -> gacha(player);
+            case "gacha", "roll", "egg", "hatch" -> gacha(player);
+            case "stats" -> showInfo(player);
+            case "evolve" -> {
+                PetEntry current = profile(player.getUniqueId()).active();
+                if (current == null) player.sendMessage(ChatColor.RED + "Bạn chưa chọn pet.");
+                else player.sendMessage(ChatColor.LIGHT_PURPLE + current.type().display() + " — " + current.stageName()
+                        + " (cấp " + current.level() + "). Tiến hóa tự động tại cấp 25/50/75; nhánh tiến hóa tùy chỉnh cần cấu hình thêm.");
+            }
+            case "equip" -> player.sendMessage(ChatColor.YELLOW + "Hệ trang bị đã được chuẩn bị trong cấu trúc mở rộng; cần bật module equipment để sử dụng.");
+            case "petdex" -> openCollection(player);
             case "top" -> showTop(player);
             case "help" -> showHelp(player);
             case "souls" -> player.sendMessage(ChatColor.YELLOW + "Linh Hồn của bạn: " + ChatColor.WHITE + profile(player.getUniqueId()).souls());

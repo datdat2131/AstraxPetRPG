@@ -1,12 +1,13 @@
 name: AstraxPetRPG
-version: 1.2.0
+version: 2.0.0
 main: vn.soulpets.SoulPetsPlugin
 api-version: '1.21'
-description: Astrax Pet RPG - bộ sưu tập pet, gacha, tiến hóa, buff thụ động và kỹ năng.
+description: Pet RPG cho Paper 1.21.4 - bộ sưu tập, gacha, EXP và chiến đấu.
+softdepend: [MythicMobs, MythicLib, PlaceholderAPI]
 commands:
   pet:
-    description: Quản lý pet của bạn.
-    usage: /pet <menu|summon|dismiss|info|skill|select|collection|gacha|souls|top|rename|help>
+    description: Quản lý pet RPG.
+    usage: /pet <menu|summon|dismiss|stats|skill|evolve|equip|petdex|egg|gacha|select|rename|top|help>
     permission: soulpets.use
   petadmin:
     description: Quản trị Astrax Pet RPG.

@@ -24,7 +24,22 @@ public enum PetType {
     POLAR_BEAR(EntityType.POLAR_BEAR, "Băng Hùng", ChatColor.BLUE, "Băng Chưởng", "Gây sát thương mạnh và làm chậm.", PetRarity.EPIC, Role.ATTACK, Material.POLAR_BEAR_SPAWN_EGG),
 
     IRON_GOLEM(EntityType.IRON_GOLEM, "Thiết Vệ", ChatColor.GRAY, "Thiết Quyền", "Gây sát thương cực mạnh lên quái.", PetRarity.LEGENDARY, Role.ATTACK, Material.IRON_BLOCK),
-    SNOW_GOLEM(EntityType.SNOW_GOLEM, "Tuyết Linh", ChatColor.WHITE, "Băng Tuyết", "Gây sát thương và làm chậm diện rộng.", PetRarity.LEGENDARY, Role.ATTACK, Material.SNOW_BLOCK);
+    SNOW_GOLEM(EntityType.SNOW_GOLEM, "Tuyết Linh", ChatColor.WHITE, "Băng Tuyết", "Gây sát thương và làm chậm diện rộng.", PetRarity.LEGENDARY, Role.ATTACK, Material.SNOW_BLOCK),
+    STRIDER(EntityType.STRIDER, "Hỏa Hành", ChatColor.RED, "Dung Nham Bộ", "Tăng sức mạnh hệ Lửa.", PetRarity.UNCOMMON, Role.SPEED, Material.STRIDER_SPAWN_EGG),
+    BLAZE(EntityType.BLAZE, "Viêm Linh", ChatColor.RED, "Hỏa Cầu", "Tấn công bằng sức nóng.", PetRarity.RARE, Role.ATTACK, Material.BLAZE_SPAWN_EGG),
+    MAGMA_CUBE(EntityType.MAGMA_CUBE, "Dung Nham Thú", ChatColor.DARK_RED, "Dung Nham Chấn", "Sát thương bùng nổ.", PetRarity.EPIC, Role.ATTACK, Material.MAGMA_CREAM),
+    GHAST(EntityType.GHAST, "U Minh Quỷ", ChatColor.GRAY, "U Minh Pháo", "Tấn công tầm xa.", PetRarity.LEGENDARY, Role.ATTACK, Material.GHAST_TEAR),
+    WITHER_SKELETON(EntityType.WITHER_SKELETON, "Hắc Cốt", ChatColor.DARK_GRAY, "Hắc Cốt Trảm", "Gây suy yếu mục tiêu.", PetRarity.MYTHIC, Role.ATTACK, Material.WITHER_SKELETON_SKULL),
+    STRAY(EntityType.STRAY, "Băng Tiễn", ChatColor.AQUA, "Băng Tiễn", "Làm chậm mục tiêu.", PetRarity.UNCOMMON, Role.ATTACK, Material.STRAY_SPAWN_EGG),
+    POLAR_BEAR_CUB(EntityType.POLAR_BEAR, "Bạch Hổ", ChatColor.BLUE, "Băng Nộ", "Phòng thủ và phản công.", PetRarity.RARE, Role.DEFENSE, Material.POLAR_BEAR_SPAWN_EGG),
+    DROWNED(EntityType.DROWNED, "Hải U Linh", ChatColor.DARK_AQUA, "Thủy Lôi", "Tấn công kẻ địch gần.", PetRarity.UNCOMMON, Role.ATTACK, Material.DROWNED_SPAWN_EGG),
+    GUARDIAN(EntityType.GUARDIAN, "Lôi Nhãn", ChatColor.YELLOW, "Lôi Quang", "Đánh dấu mục tiêu.", PetRarity.EPIC, Role.ATTACK, Material.GUARDIAN_SPAWN_EGG),
+    BREEZE(EntityType.BREEZE, "Phong Lôi", ChatColor.WHITE, "Phong Bạo", "Tấn công diện rộng.", PetRarity.LEGENDARY, Role.ATTACK, Material.BREEZE_SPAWN_EGG),
+    ENDERMAN(EntityType.ENDERMAN, "Ảnh Bộ", ChatColor.DARK_PURPLE, "Ảnh Dịch", "Cơ động né tránh.", PetRarity.RARE, Role.SPEED, Material.ENDERMAN_SPAWN_EGG),
+    VEX(EntityType.VEX, "Ám Dực", ChatColor.DARK_PURPLE, "Ám Kích", "Đột kích mục tiêu.", PetRarity.MYTHIC, Role.ATTACK, Material.VEX_SPAWN_EGG),
+    ALLAY_LIGHT(EntityType.ALLAY, "Quang Linh", ChatColor.YELLOW, "Quang Hộ", "Hồi phục và bảo vệ.", PetRarity.ANCIENT, Role.HEAL, Material.GLOWSTONE),
+    MOOSHROOM(EntityType.MOOSHROOM, "Mộc Linh", ChatColor.GREEN, "Mộc Sinh", "Hỗ trợ hồi phục.", PetRarity.EPIC, Role.HEAL, Material.MOOSHROOM_SPAWN_EGG),
+    SNIFFER(EntityType.SNIFFER, "Cổ Mộc", ChatColor.GREEN, "Cổ Mộc Sinh", "Tăng khả năng sinh tồn.", PetRarity.LEGENDARY, Role.DEFENSE, Material.SNIFFER_SPAWN_EGG);
 
     /** Vai trò của pet quyết định kỹ năng và hành vi tự động. */
     public enum Role {
@@ -63,6 +78,18 @@ public enum PetType {
     public PetRarity rarity() { return rarity; }
     public Role role() { return role; }
     public Material icon() { return icon; }
+
+    /** Hệ nguyên tố dùng cho lọc PetDex, kỹ năng và cấu hình mở rộng. */
+    public Element element() {
+        return switch (this) {
+            case FOX, BEE, STRIDER, BLAZE, MAGMA_CUBE, GHAST -> Element.FIRE;
+            case TURTLE, POLAR_BEAR, SNOW_GOLEM, STRAY, POLAR_BEAR_CUB, DROWNED -> Element.ICE;
+            case PARROT, GOAT, GUARDIAN, BREEZE -> Element.LIGHTNING;
+            case ENDERMAN, VEX, WITHER_SKELETON -> Element.DARKNESS;
+            case ALLAY, AXOLOTL, ALLAY_LIGHT -> Element.LIGHT;
+            default -> Element.NATURE;
+        };
+    }
 
     public static PetType parse(String input) {
         if (input == null) return null;

@@ -28,6 +28,7 @@ public final class PetStorage implements AutoCloseable {
                     + "owner_uuid TEXT PRIMARY KEY,"
                     + "selected TEXT NOT NULL,"
                     + "souls INTEGER NOT NULL DEFAULT 0)");
+            st.executeUpdate("CREATE TABLE IF NOT EXISTS pet_meta (owner_uuid TEXT PRIMARY KEY, pity_count INTEGER NOT NULL DEFAULT 0)");
             st.executeUpdate("CREATE TABLE IF NOT EXISTS pet_collection ("
                     + "owner_uuid TEXT NOT NULL,"
                     + "pet_type TEXT NOT NULL,"
@@ -66,6 +67,10 @@ public final class PetStorage implements AutoCloseable {
                 }
             }
             profile.normalize();
+            try (PreparedStatement meta = connection.prepareStatement("SELECT pity_count FROM pet_meta WHERE owner_uuid=?")) {
+                meta.setString(1, id);
+                try (ResultSet rs = meta.executeQuery()) { if (rs.next()) profile.setPityCount(rs.getInt(1)); }
+            }
             return profile;
         } catch (SQLException ex) {
             plugin.getLogger().log(Level.SEVERE, "Failed loading profile " + owner, ex);
@@ -98,6 +103,12 @@ public final class PetStorage implements AutoCloseable {
                     ps.setString(5, entry.customName());
                     ps.executeUpdate();
                 }
+            }
+            try (PreparedStatement meta = connection.prepareStatement(
+                    "INSERT INTO pet_meta(owner_uuid,pity_count) VALUES(?,?) ON CONFLICT(owner_uuid) DO UPDATE SET pity_count=excluded.pity_count")) {
+                meta.setString(1, id);
+                meta.setInt(2, profile.pityCount());
+                meta.executeUpdate();
             }
             connection.commit();
         } catch (SQLException ex) {
