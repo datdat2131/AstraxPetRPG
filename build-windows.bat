@@ -1,7 +1,7 @@
 @echo off
 setlocal
 cd /d "%~dp0"
-echo === AstraxPetRPG 1.4.0 build ===
+echo === AstraxPetRPG 1.4.1 build ===
 java -version >nul 2>&1
 if errorlevel 1 (
   echo ERROR: Java not found. Install JDK 21 first.
@@ -22,5 +22,5 @@ if errorlevel 1 (
   exit /b 1
 )
 echo.
-echo BUILD SUCCESS. JAR: %CD%\target\AstraxPetRPG-1.4.0.jar
+echo BUILD SUCCESS. JAR: %CD%\target\AstraxPetRPG-1.4.1.jar
 pause
