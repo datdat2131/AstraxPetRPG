@@ -1,29 +1,14 @@
-# AstraxPetRPG 1.5.0 — Source
+# Astrax Pet RPG 1.2.0
 
-Plugin khung Pet RPG dành cho **Paper 1.21.4 / Java 21**.
+Plugin pet RPG cho Paper 1.21.4 / Java 21.
 
-## Tính năng hiện có (giai đoạn 1)
-- Nạp cấu hình chung từ `config.yml` và danh sách pet từ `pets.yml`.
-- Registry 30 pet mẫu, độ hiếm và nguyên tố.
-- Khởi tạo SQLite bất đồng bộ, lưu bảng pet và bộ đếm pity.
-- Lệnh `/pet`, `/pet info <pet_type>` và các lệnh khung để phát triển tiếp.
-- Unit test cơ bản cho `PetRarity`.
+- 16 pet, 4 độ hiếm (Thường, Hiếm, Sử Thi, Huyền Thoại)
+- Bộ sưu tập pet, chọn pet bằng menu hoặc `/pet select`
+- Gacha bằng Linh Hồn (kiếm từ việc diệt quái), pet trùng được đổi thành XP
+- Tiến hóa 4 giai đoạn (cấp 25 / 50 / 75), kỹ năng riêng theo vai trò
+- Buff thụ động khi triệu hồi (máu, tốc độ, sát thương)
+- Pet tự tấn công / hồi máu, thanh XP trên action bar
+- Chuột phải vào pet để mở menu, bảng xếp hạng `/pet top`
 
-## Chưa triển khai
-GUI, triệu hồi thực tế, chiến đấu, tiến hóa, boss/quest và tích hợp sâu với MythicMobs/PlaceholderAPI chưa được triển khai ở giai đoạn này. Plugin chỉ kiểm tra sự hiện diện của các plugin tùy chọn.
-
-## Build
-Yêu cầu JDK 21 và Maven 3.9+.
-
-```bash
-mvn clean verify
-```
-
-JAR dự kiến nằm tại `target/AstraxPetRPG-1.5.0.jar`. Mã nguồn này chưa được xác nhận build thành công trong môi trường đóng gói hiện tại; hãy chạy lệnh trên để kiểm tra trước khi đưa lên server.
-
-## Cài đặt
-1. Build JAR rồi chép vào thư mục `plugins` của Paper 1.21.4.
-2. Khởi động server. Paper sẽ tải thư viện SQLite được khai báo trong `plugin.yml`; server cần kết nối Internet ở lần khởi động cần tải thư viện.
-3. Chỉnh `plugins/AstraxPetRPG/config.yml` và `pets.yml` theo nhu cầu.
-
-Mặc định dùng SQLite trong thư mục dữ liệu plugin. Cấu hình MySQL mẫu có trong `config.yml` nhưng adapter MySQL chưa được triển khai.
+Bố cục phẳng: mọi file `.java`, `plugin.yml`, `config.yml`, `pom.xml` nằm ở thư mục gốc.
+Build: `mvn clean package` -> `target/AstraxPetRPG-1.2.0.jar`
