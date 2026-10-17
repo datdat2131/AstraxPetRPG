@@ -1,0 +1,8 @@
+target/
+*.db
+*.db-shm
+*.db-wal
+.idea/
+.vscode/
+*.iml
+.DS_Store
