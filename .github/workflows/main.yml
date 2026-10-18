@@ -1,26 +1,29 @@
 name: Build AstraxPetRPG
 on:
-  workflow_dispatch:
   push:
-    branches: [ main, master ]
-permissions:
-  contents: read
+  pull_request:
+  workflow_dispatch:
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Set up Java 21
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: '21'
           cache: maven
-      - name: Build plugin JAR
-        run: mvn --batch-mode clean package
+      - name: Build and test
+        run: mvn -B clean package
+      - name: Verify JAR
+        run: |
+          chmod +x scripts_verify_jar.sh
+          ./scripts_verify_jar.sh "$(ls target/AstraxPetRPG-*.jar | head -n1)"
       - name: Upload JAR
         uses: actions/upload-artifact@v4
         with:
-          name: AstraxPetRPG-1.2.0
-          path: target/AstraxPetRPG-1.2.0.jar
+          name: AstraxPetRPG
+          path: target/AstraxPetRPG-*.jar
           if-no-files-found: error
