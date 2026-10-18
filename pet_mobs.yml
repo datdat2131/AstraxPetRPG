@@ -1,0 +1,22 @@
+# Đặt vào plugins/MythicMobs/Mobs/. Dùng làm HÌNH DẠNG pet: trong pets.yml đặt  mythic-mob: "AstraxEmberFox"
+# Lưu ý: mob phải là dạng Mob (có AI). Plugin tự đặt invulnerable, không persistent, gắn tên và cấp.
+AstraxEmberFox:
+  Type: FOX
+  Display: '&6Ember Fox'
+  Health: 20
+  Options:
+    Silent: true
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    PreventSunburn: true
+    Despawn: false
+
+# Mob/Boss cho dungeon: trong dungeons.yml dùng  boss: {mythic: SkeletonKing, name: "&6Skeleton King", hp: 0}
+# hp: 0 = giữ nguyên máu cấu hình trong MythicMobs.
+SkeletonKing:
+  Type: WITHER_SKELETON
+  Display: '&6Skeleton King'
+  Health: 600
+  Damage: 8
+  Skills:
+  - skill{s=AstraxEmberBurst} @self ~onTimer:200

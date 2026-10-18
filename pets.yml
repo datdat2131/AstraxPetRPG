@@ -1,0 +1,653 @@
+# Cấu hình pet. Thêm pet mới = thêm một khối dưới 'pets:' rồi /petadmin reload (không giới hạn số lượng).
+# element: FIRE|ICE|LIGHTNING|DARK|LIGHT|NATURE   rarity: COMMON|UNCOMMON|RARE|EPIC|LEGENDARY|MYTHIC|ANCIENT
+# role: TANK|HEALER|DPS   entity: tên EntityType của Paper (mob dạng Mob)   obtainable: false = chỉ có qua tiến hóa
+# mythic-mob: (tuỳ chọn) tên mob MythicMobs dùng làm hình dạng pet. skills: id trong skills.yml.
+pets:
+  ember_fox:
+    name: "Hồ Hỏa"
+    element: FIRE
+    rarity: COMMON
+    role: DPS
+    entity: FOX
+    obtainable: true
+    mythic-mob: ""
+    stats: {hp: 30, atk: 6, def: 2, speed: 1.0}
+    skills: [ember_burst, rally_roar, ferocity, critical_eye]
+    description: "Pet hệ FIRE độ hiếm COMMON."
+    evolutions:
+      - {to: ember_fox_king, min-level: 20, souls: 300, star: 0, materials: {BLAZE_ROD: 8}}
+      - {to: ember_fox_sage, min-level: 20, souls: 300, star: 0, materials: {BLAZE_ROD: 8}}
+  ember_fox_king:
+    name: "Hồ Hỏa Vương"
+    element: FIRE
+    rarity: COMMON
+    role: DPS
+    entity: FOX
+    obtainable: false
+    mythic-mob: ""
+    stats: {hp: 33.0, atk: 8.1, def: 2.0, speed: 1.0}
+    skills: [ember_burst, rally_roar, ferocity, critical_eye]
+    description: "Nhánh tiến hóa: thiên về sát thương."
+  ember_fox_sage:
+    name: "Hồ Hỏa Thần"
+    element: FIRE
+    rarity: COMMON
+    role: TANK
+    entity: FOX
+    obtainable: false
+    mythic-mob: ""
+    stats: {hp: 79.8, atk: 2.7, def: 8.7, speed: 1.0}
+    skills: [ember_burst, guardian_shield, iron_hide, vitality]
+    description: "Nhánh tiến hóa: thiên về phòng thủ/hỗ trợ."
+  flare_ocelot:
+    name: "Báo Lửa"
+    element: FIRE
+    rarity: RARE
+    role: DPS
+    entity: OCELOT
+    obtainable: true
+    mythic-mob: ""
+    stats: {hp: 30, atk: 6, def: 2, speed: 1.05}
+    skills: [ember_burst, rally_roar, ferocity, critical_eye]
+    description: "Pet hệ FIRE độ hiếm RARE."
+    evolutions:
+      - {to: flare_ocelot_king, min-level: 30, souls: 900, star: 0, materials: {BLAZE_ROD: 8}}
+      - {to: flare_ocelot_sage, min-level: 30, souls: 900, star: 0, materials: {BLAZE_ROD: 8}}
+  flare_ocelot_king:
+    name: "Báo Lửa Vương"
+    element: FIRE
+    rarity: RARE
+    role: DPS
+    entity: OCELOT
+    obtainable: false
+    mythic-mob: ""
+    stats: {hp: 33.0, atk: 8.1, def: 2.0, speed: 1.05}
+    skills: [ember_burst, rally_roar, ferocity, critical_eye]
+    description: "Nhánh tiến hóa: thiên về sát thương."
+  flare_ocelot_sage:
+    name: "Báo Lửa Thần"
+    element: FIRE
+    rarity: RARE
+    role: TANK
+    entity: OCELOT
+    obtainable: false
+    mythic-mob: ""
+    stats: {hp: 79.8, atk: 2.7, def: 8.7, speed: 1.05}
+    skills: [ember_burst, guardian_shield, iron_hide, vitality]
+    description: "Nhánh tiến hóa: thiên về phòng thủ/hỗ trợ."
+  magma_goat:
+    name: "Sơn Dương Dung Nham"
+    element: FIRE
+    rarity: LEGENDARY
+    role: TANK
+    entity: GOAT
+    obtainable: true
+    mythic-mob: ""
+    stats: {hp: 55, atk: 3, def: 6, speed: 1.1}
+    skills: [ember_burst, guardian_shield, iron_hide, vitality]
+    description: "Pet hệ FIRE độ hiếm LEGENDARY."
+    evolutions:
+      - {to: magma_goat_king, min-level: 40, souls: 1500, star: 0, materials: {BLAZE_ROD: 8}}
+      - {to: magma_goat_sage, min-level: 40, souls: 1500, star: 0, materials: {BLAZE_ROD: 8}}
+  magma_goat_king:
+    name: "Sơn Dương Dung Nham Vương"
+    element: FIRE
+    rarity: LEGENDARY
+    role: DPS
+    entity: GOAT
+    obtainable: false
+    mythic-mob: ""
+    stats: {hp: 33.0, atk: 8.1, def: 2.0, speed: 1.1}
+    skills: [ember_burst, rally_roar, ferocity, critical_eye]
+    description: "Nhánh tiến hóa: thiên về sát thương."
+  magma_goat_sage:
+    name: "Sơn Dương Dung Nham Thần"
+    element: FIRE
+    rarity: LEGENDARY
+    role: TANK
+    entity: GOAT
+    obtainable: false
+    mythic-mob: ""
+    stats: {hp: 79.8, atk: 2.7, def: 8.7, speed: 1.1}
+    skills: [ember_burst, guardian_shield, iron_hide, vitality]
+    description: "Nhánh tiến hóa: thiên về phòng thủ/hỗ trợ."
+  frost_rabbit:
+    name: "Nguyệt Thố Băng"
+    element: ICE
+    rarity: UNCOMMON
+    role: DPS
+    entity: RABBIT
+    obtainable: true
+    mythic-mob: ""
+    stats: {hp: 30, atk: 6, def: 2, speed: 1.15}
+    skills: [frost_nova, rally_roar, ferocity, critical_eye]
+    description: "Pet hệ ICE độ hiếm UNCOMMON."
+    evolutions:
+      - {to: frost_rabbit_king, min-level: 25, souls: 600, star: 0, materials: {BLUE_ICE: 16}}
+      - {to: frost_rabbit_sage, min-level: 25, souls: 600, star: 0, materials: {BLUE_ICE: 16}}
+  frost_rabbit_king:
+    name: "Nguyệt Thố Băng Vương"
+    element: ICE
+    rarity: UNCOMMON
+    role: DPS
+    entity: RABBIT
+    obtainable: false
+    mythic-mob: ""
+    stats: {hp: 33.0, atk: 8.1, def: 2.0, speed: 1.15}
+    skills: [frost_nova, rally_roar, ferocity, critical_eye]
+    description: "Nhánh tiến hóa: thiên về sát thương."
+  frost_rabbit_sage:
+    name: "Nguyệt Thố Băng Thần"
+    element: ICE
+    rarity: UNCOMMON
+    role: TANK
+    entity: RABBIT
+    obtainable: false
+    mythic-mob: ""
+    stats: {hp: 79.8, atk: 2.7, def: 8.7, speed: 1.15}
+    skills: [frost_nova, guardian_shield, iron_hide, vitality]
+    description: "Nhánh tiến hóa: thiên về phòng thủ/hỗ trợ."
+  glacier_bear:
+    name: "Băng Hùng"
+    element: ICE
+    rarity: EPIC
+    role: TANK
+    entity: POLAR_BEAR
+    obtainable: true
+    mythic-mob: ""
+    stats: {hp: 55, atk: 3, def: 6, speed: 1.0}
+    skills: [frost_nova, guardian_shield, iron_hide, vitality]
+    description: "Pet hệ ICE độ hiếm EPIC."
+    evolutions:
+      - {to: glacier_bear_king, min-level: 35, souls: 1200, star: 0, materials: {BLUE_ICE: 16}}
+      - {to: glacier_bear_sage, min-level: 35, souls: 1200, star: 0, materials: {BLUE_ICE: 16}}
+  glacier_bear_king:
+    name: "Băng Hùng Vương"
+    element: ICE
+    rarity: EPIC
+    role: DPS
+    entity: POLAR_BEAR
+    obtainable: false
+    mythic-mob: ""
+    stats: {hp: 33.0, atk: 8.1, def: 2.0, speed: 1.0}
+    skills: [frost_nova, rally_roar, ferocity, critical_eye]
+    description: "Nhánh tiến hóa: thiên về sát thương."
+  glacier_bear_sage:
+    name: "Băng Hùng Thần"
+    element: ICE
+    rarity: EPIC
+    role: TANK
+    entity: POLAR_BEAR
+    obtainable: false
+    mythic-mob: ""
+    stats: {hp: 79.8, atk: 2.7, def: 8.7, speed: 1.0}
+    skills: [frost_nova, guardian_shield, iron_hide, vitality]
+    description: "Nhánh tiến hóa: thiên về phòng thủ/hỗ trợ."
+  snow_golem:
+    name: "Tuyết Linh"
+    element: ICE
+    rarity: MYTHIC
+    role: DPS
+    entity: SNOW_GOLEM
+    obtainable: true
+    mythic-mob: ""
+    stats: {hp: 30, atk: 6, def: 2, speed: 1.05}
+    skills: [frost_nova, rally_roar, ferocity, critical_eye]
+    description: "Pet hệ ICE độ hiếm MYTHIC."
+    evolutions:
+      - {to: snow_golem_king, min-level: 45, souls: 1800, star: 0, materials: {BLUE_ICE: 16}}
+      - {to: snow_golem_sage, min-level: 45, souls: 1800, star: 0, materials: {BLUE_ICE: 16}}
+  snow_golem_king:
+    name: "Tuyết Linh Vương"
+    element: ICE
+    rarity: MYTHIC
+    role: DPS
+    entity: SNOW_GOLEM
+    obtainable: false
+    mythic-mob: ""
+    stats: {hp: 33.0, atk: 8.1, def: 2.0, speed: 1.05}
+    skills: [frost_nova, rally_roar, ferocity, critical_eye]
+    description: "Nhánh tiến hóa: thiên về sát thương."
+  snow_golem_sage:
+    name: "Tuyết Linh Thần"
+    element: ICE
+    rarity: MYTHIC
+    role: TANK
+    entity: SNOW_GOLEM
+    obtainable: false
+    mythic-mob: ""
+    stats: {hp: 79.8, atk: 2.7, def: 8.7, speed: 1.05}
+    skills: [frost_nova, guardian_shield, iron_hide, vitality]
+    description: "Nhánh tiến hóa: thiên về phòng thủ/hỗ trợ."
+  spark_cat:
+    name: "Miêu Điện"
+    element: LIGHTNING
+    rarity: COMMON
+    role: DPS
+    entity: CAT
+    obtainable: true
+    mythic-mob: ""
+    stats: {hp: 30, atk: 6, def: 2, speed: 1.1}
+    skills: [chain_lightning, rally_roar, swiftness, critical_eye]
+    description: "Pet hệ LIGHTNING độ hiếm COMMON."
+    evolutions:
+      - {to: spark_cat_king, min-level: 20, souls: 300, star: 0, materials: {LIGHTNING_ROD: 8}}
+      - {to: spark_cat_sage, min-level: 20, souls: 300, star: 0, materials: {LIGHTNING_ROD: 8}}
+  spark_cat_king:
+    name: "Miêu Điện Vương"
+    element: LIGHTNING
+    rarity: COMMON
+    role: DPS
+    entity: CAT
+    obtainable: false
+    mythic-mob: ""
+    stats: {hp: 33.0, atk: 8.1, def: 2.0, speed: 1.1}
+    skills: [chain_lightning, rally_roar, swiftness, critical_eye]
+    description: "Nhánh tiến hóa: thiên về sát thương."
+  spark_cat_sage:
+    name: "Miêu Điện Thần"
+    element: LIGHTNING
+    rarity: COMMON
+    role: TANK
+    entity: CAT
+    obtainable: false
+    mythic-mob: ""
+    stats: {hp: 79.8, atk: 2.7, def: 8.7, speed: 1.1}
+    skills: [chain_lightning, guardian_shield, iron_hide, vitality]
+    description: "Nhánh tiến hóa: thiên về phòng thủ/hỗ trợ."
+  storm_parrot:
+    name: "Thần Điểu Bão"
+    element: LIGHTNING
+    rarity: RARE
+    role: DPS
+    entity: PARROT
+    obtainable: true
+    mythic-mob: ""
+    stats: {hp: 30, atk: 6, def: 2, speed: 1.15}
+    skills: [chain_lightning, rally_roar, swiftness, critical_eye]
+    description: "Pet hệ LIGHTNING độ hiếm RARE."
+    evolutions:
+      - {to: storm_parrot_king, min-level: 30, souls: 900, star: 0, materials: {LIGHTNING_ROD: 8}}
+      - {to: storm_parrot_sage, min-level: 30, souls: 900, star: 0, materials: {LIGHTNING_ROD: 8}}
+  storm_parrot_king:
+    name: "Thần Điểu Bão Vương"
+    element: LIGHTNING
+    rarity: RARE
+    role: DPS
+    entity: PARROT
+    obtainable: false
+    mythic-mob: ""
+    stats: {hp: 33.0, atk: 8.1, def: 2.0, speed: 1.15}
+    skills: [chain_lightning, rally_roar, swiftness, critical_eye]
+    description: "Nhánh tiến hóa: thiên về sát thương."
+  storm_parrot_sage:
+    name: "Thần Điểu Bão Thần"
+    element: LIGHTNING
+    rarity: RARE
+    role: TANK
+    entity: PARROT
+    obtainable: false
+    mythic-mob: ""
+    stats: {hp: 79.8, atk: 2.7, def: 8.7, speed: 1.15}
+    skills: [chain_lightning, guardian_shield, iron_hide, vitality]
+    description: "Nhánh tiến hóa: thiên về phòng thủ/hỗ trợ."
+  thunder_wolf:
+    name: "Lôi Lang"
+    element: LIGHTNING
+    rarity: LEGENDARY
+    role: DPS
+    entity: WOLF
+    obtainable: true
+    mythic-mob: ""
+    stats: {hp: 30, atk: 6, def: 2, speed: 1.0}
+    skills: [chain_lightning, rally_roar, swiftness, critical_eye]
+    description: "Pet hệ LIGHTNING độ hiếm LEGENDARY."
+    evolutions:
+      - {to: thunder_wolf_king, min-level: 40, souls: 1500, star: 0, materials: {LIGHTNING_ROD: 8}}
+      - {to: thunder_wolf_sage, min-level: 40, souls: 1500, star: 0, materials: {LIGHTNING_ROD: 8}}
+  thunder_wolf_king:
+    name: "Lôi Lang Vương"
+    element: LIGHTNING
+    rarity: LEGENDARY
+    role: DPS
+    entity: WOLF
+    obtainable: false
+    mythic-mob: ""
+    stats: {hp: 33.0, atk: 8.1, def: 2.0, speed: 1.0}
+    skills: [chain_lightning, rally_roar, swiftness, critical_eye]
+    description: "Nhánh tiến hóa: thiên về sát thương."
+  thunder_wolf_sage:
+    name: "Lôi Lang Thần"
+    element: LIGHTNING
+    rarity: LEGENDARY
+    role: TANK
+    entity: WOLF
+    obtainable: false
+    mythic-mob: ""
+    stats: {hp: 79.8, atk: 2.7, def: 8.7, speed: 1.0}
+    skills: [chain_lightning, guardian_shield, iron_hide, vitality]
+    description: "Nhánh tiến hóa: thiên về phòng thủ/hỗ trợ."
+  dusk_bat:
+    name: "Dơi Hoàng Hôn"
+    element: DARK
+    rarity: UNCOMMON
+    role: DPS
+    entity: BAT
+    obtainable: true
+    mythic-mob: ""
+    stats: {hp: 30, atk: 6, def: 2, speed: 1.05}
+    skills: [shadow_drain, rally_roar, ferocity, vampiric]
+    description: "Pet hệ DARK độ hiếm UNCOMMON."
+    evolutions:
+      - {to: dusk_bat_king, min-level: 25, souls: 600, star: 0, materials: {ENDER_PEARL: 16}}
+      - {to: dusk_bat_sage, min-level: 25, souls: 600, star: 0, materials: {ENDER_PEARL: 16}}
+  dusk_bat_king:
+    name: "Dơi Hoàng Hôn Vương"
+    element: DARK
+    rarity: UNCOMMON
+    role: DPS
+    entity: BAT
+    obtainable: false
+    mythic-mob: ""
+    stats: {hp: 33.0, atk: 8.1, def: 2.0, speed: 1.05}
+    skills: [shadow_drain, rally_roar, ferocity, vampiric]
+    description: "Nhánh tiến hóa: thiên về sát thương."
+  dusk_bat_sage:
+    name: "Dơi Hoàng Hôn Thần"
+    element: DARK
+    rarity: UNCOMMON
+    role: TANK
+    entity: BAT
+    obtainable: false
+    mythic-mob: ""
+    stats: {hp: 79.8, atk: 2.7, def: 8.7, speed: 1.05}
+    skills: [shadow_drain, guardian_shield, iron_hide, vitality]
+    description: "Nhánh tiến hóa: thiên về phòng thủ/hỗ trợ."
+  void_frog:
+    name: "Ếch Hư Không"
+    element: DARK
+    rarity: EPIC
+    role: DPS
+    entity: FROG
+    obtainable: true
+    mythic-mob: ""
+    stats: {hp: 30, atk: 6, def: 2, speed: 1.1}
+    skills: [shadow_drain, rally_roar, ferocity, vampiric]
+    description: "Pet hệ DARK độ hiếm EPIC."
+    evolutions:
+      - {to: void_frog_king, min-level: 35, souls: 1200, star: 0, materials: {ENDER_PEARL: 16}}
+      - {to: void_frog_sage, min-level: 35, souls: 1200, star: 0, materials: {ENDER_PEARL: 16}}
+  void_frog_king:
+    name: "Ếch Hư Không Vương"
+    element: DARK
+    rarity: EPIC
+    role: DPS
+    entity: FROG
+    obtainable: false
+    mythic-mob: ""
+    stats: {hp: 33.0, atk: 8.1, def: 2.0, speed: 1.1}
+    skills: [shadow_drain, rally_roar, ferocity, vampiric]
+    description: "Nhánh tiến hóa: thiên về sát thương."
+  void_frog_sage:
+    name: "Ếch Hư Không Thần"
+    element: DARK
+    rarity: EPIC
+    role: TANK
+    entity: FROG
+    obtainable: false
+    mythic-mob: ""
+    stats: {hp: 79.8, atk: 2.7, def: 8.7, speed: 1.1}
+    skills: [shadow_drain, guardian_shield, iron_hide, vitality]
+    description: "Nhánh tiến hóa: thiên về phòng thủ/hỗ trợ."
+  abyss_sniffer:
+    name: "Thú Vực Thẳm"
+    element: DARK
+    rarity: ANCIENT
+    role: TANK
+    entity: SNIFFER
+    obtainable: true
+    mythic-mob: ""
+    stats: {hp: 55, atk: 3, def: 6, speed: 1.15}
+    skills: [shadow_drain, guardian_shield, iron_hide, vitality]
+    description: "Pet hệ DARK độ hiếm ANCIENT."
+    evolutions:
+      - {to: abyss_sniffer_king, min-level: 50, souls: 2100, star: 0, materials: {ENDER_PEARL: 16}}
+      - {to: abyss_sniffer_sage, min-level: 50, souls: 2100, star: 0, materials: {ENDER_PEARL: 16}}
+  abyss_sniffer_king:
+    name: "Thú Vực Thẳm Vương"
+    element: DARK
+    rarity: ANCIENT
+    role: DPS
+    entity: SNIFFER
+    obtainable: false
+    mythic-mob: ""
+    stats: {hp: 33.0, atk: 8.1, def: 2.0, speed: 1.15}
+    skills: [shadow_drain, rally_roar, ferocity, vampiric]
+    description: "Nhánh tiến hóa: thiên về sát thương."
+  abyss_sniffer_sage:
+    name: "Thú Vực Thẳm Thần"
+    element: DARK
+    rarity: ANCIENT
+    role: TANK
+    entity: SNIFFER
+    obtainable: false
+    mythic-mob: ""
+    stats: {hp: 79.8, atk: 2.7, def: 8.7, speed: 1.15}
+    skills: [shadow_drain, guardian_shield, iron_hide, vitality]
+    description: "Nhánh tiến hóa: thiên về phòng thủ/hỗ trợ."
+  dawn_allay:
+    name: "Tinh Linh Bình Minh"
+    element: LIGHT
+    rarity: RARE
+    role: HEALER
+    entity: ALLAY
+    obtainable: true
+    mythic-mob: ""
+    stats: {hp: 38, atk: 3, def: 3, speed: 1.0}
+    skills: [holy_light, guardian_shield, regeneration, vitality]
+    description: "Pet hệ LIGHT độ hiếm RARE."
+    evolutions:
+      - {to: dawn_allay_king, min-level: 30, souls: 900, star: 0, materials: {GLOWSTONE: 32}}
+      - {to: dawn_allay_sage, min-level: 30, souls: 900, star: 0, materials: {GLOWSTONE: 32}}
+  dawn_allay_king:
+    name: "Tinh Linh Bình Minh Vương"
+    element: LIGHT
+    rarity: RARE
+    role: DPS
+    entity: ALLAY
+    obtainable: false
+    mythic-mob: ""
+    stats: {hp: 33.0, atk: 8.1, def: 2.0, speed: 1.0}
+    skills: [holy_light, rally_roar, ferocity, critical_eye]
+    description: "Nhánh tiến hóa: thiên về sát thương."
+  dawn_allay_sage:
+    name: "Tinh Linh Bình Minh Thần"
+    element: LIGHT
+    rarity: RARE
+    role: HEALER
+    entity: ALLAY
+    obtainable: false
+    mythic-mob: ""
+    stats: {hp: 55.1, atk: 2.7, def: 4.3, speed: 1.0}
+    skills: [holy_light, guardian_shield, regeneration, vitality]
+    description: "Nhánh tiến hóa: thiên về phòng thủ/hỗ trợ."
+  halo_llama:
+    name: "Linh Lạc Đà Thánh"
+    element: LIGHT
+    rarity: UNCOMMON
+    role: HEALER
+    entity: LLAMA
+    obtainable: true
+    mythic-mob: ""
+    stats: {hp: 38, atk: 3, def: 3, speed: 1.05}
+    skills: [holy_light, guardian_shield, regeneration, vitality]
+    description: "Pet hệ LIGHT độ hiếm UNCOMMON."
+    evolutions:
+      - {to: halo_llama_king, min-level: 25, souls: 600, star: 0, materials: {GLOWSTONE: 32}}
+      - {to: halo_llama_sage, min-level: 25, souls: 600, star: 0, materials: {GLOWSTONE: 32}}
+  halo_llama_king:
+    name: "Linh Lạc Đà Thánh Vương"
+    element: LIGHT
+    rarity: UNCOMMON
+    role: DPS
+    entity: LLAMA
+    obtainable: false
+    mythic-mob: ""
+    stats: {hp: 33.0, atk: 8.1, def: 2.0, speed: 1.05}
+    skills: [holy_light, rally_roar, ferocity, critical_eye]
+    description: "Nhánh tiến hóa: thiên về sát thương."
+  halo_llama_sage:
+    name: "Linh Lạc Đà Thánh Thần"
+    element: LIGHT
+    rarity: UNCOMMON
+    role: HEALER
+    entity: LLAMA
+    obtainable: false
+    mythic-mob: ""
+    stats: {hp: 55.1, atk: 2.7, def: 4.3, speed: 1.05}
+    skills: [holy_light, guardian_shield, regeneration, vitality]
+    description: "Nhánh tiến hóa: thiên về phòng thủ/hỗ trợ."
+  solar_golem:
+    name: "Thiết Vệ Thánh Quang"
+    element: LIGHT
+    rarity: MYTHIC
+    role: TANK
+    entity: IRON_GOLEM
+    obtainable: true
+    mythic-mob: ""
+    stats: {hp: 55, atk: 3, def: 6, speed: 1.1}
+    skills: [holy_light, guardian_shield, iron_hide, vitality]
+    description: "Pet hệ LIGHT độ hiếm MYTHIC."
+    evolutions:
+      - {to: solar_golem_king, min-level: 45, souls: 1800, star: 0, materials: {GLOWSTONE: 32}}
+      - {to: solar_golem_sage, min-level: 45, souls: 1800, star: 0, materials: {GLOWSTONE: 32}}
+  solar_golem_king:
+    name: "Thiết Vệ Thánh Quang Vương"
+    element: LIGHT
+    rarity: MYTHIC
+    role: DPS
+    entity: IRON_GOLEM
+    obtainable: false
+    mythic-mob: ""
+    stats: {hp: 33.0, atk: 8.1, def: 2.0, speed: 1.1}
+    skills: [holy_light, rally_roar, ferocity, critical_eye]
+    description: "Nhánh tiến hóa: thiên về sát thương."
+  solar_golem_sage:
+    name: "Thiết Vệ Thánh Quang Thần"
+    element: LIGHT
+    rarity: MYTHIC
+    role: HEALER
+    entity: IRON_GOLEM
+    obtainable: false
+    mythic-mob: ""
+    stats: {hp: 55.1, atk: 2.7, def: 4.3, speed: 1.1}
+    skills: [holy_light, guardian_shield, regeneration, vitality]
+    description: "Nhánh tiến hóa: thiên về phòng thủ/hỗ trợ."
+  leaf_turtle:
+    name: "Huyền Quy Lá"
+    element: NATURE
+    rarity: COMMON
+    role: TANK
+    entity: TURTLE
+    obtainable: true
+    mythic-mob: ""
+    stats: {hp: 55, atk: 3, def: 6, speed: 1.15}
+    skills: [nature_embrace, guardian_shield, iron_hide, vitality]
+    description: "Pet hệ NATURE độ hiếm COMMON."
+    evolutions:
+      - {to: leaf_turtle_king, min-level: 20, souls: 300, star: 0, materials: {MOSS_BLOCK: 16}}
+      - {to: leaf_turtle_sage, min-level: 20, souls: 300, star: 0, materials: {MOSS_BLOCK: 16}}
+  leaf_turtle_king:
+    name: "Huyền Quy Lá Vương"
+    element: NATURE
+    rarity: COMMON
+    role: DPS
+    entity: TURTLE
+    obtainable: false
+    mythic-mob: ""
+    stats: {hp: 33.0, atk: 8.1, def: 2.0, speed: 1.15}
+    skills: [nature_embrace, rally_roar, ferocity, critical_eye]
+    description: "Nhánh tiến hóa: thiên về sát thương."
+  leaf_turtle_sage:
+    name: "Huyền Quy Lá Thần"
+    element: NATURE
+    rarity: COMMON
+    role: HEALER
+    entity: TURTLE
+    obtainable: false
+    mythic-mob: ""
+    stats: {hp: 55.1, atk: 2.7, def: 4.3, speed: 1.15}
+    skills: [nature_embrace, guardian_shield, regeneration, vitality]
+    description: "Nhánh tiến hóa: thiên về phòng thủ/hỗ trợ."
+  bloom_axolotl:
+    name: "Axolotl Hoa"
+    element: NATURE
+    rarity: EPIC
+    role: HEALER
+    entity: AXOLOTL
+    obtainable: true
+    mythic-mob: ""
+    stats: {hp: 38, atk: 3, def: 3, speed: 1.0}
+    skills: [nature_embrace, guardian_shield, regeneration, vitality]
+    description: "Pet hệ NATURE độ hiếm EPIC."
+    evolutions:
+      - {to: bloom_axolotl_king, min-level: 35, souls: 1200, star: 0, materials: {MOSS_BLOCK: 16}}
+      - {to: bloom_axolotl_sage, min-level: 35, souls: 1200, star: 0, materials: {MOSS_BLOCK: 16}}
+  bloom_axolotl_king:
+    name: "Axolotl Hoa Vương"
+    element: NATURE
+    rarity: EPIC
+    role: DPS
+    entity: AXOLOTL
+    obtainable: false
+    mythic-mob: ""
+    stats: {hp: 33.0, atk: 8.1, def: 2.0, speed: 1.0}
+    skills: [nature_embrace, rally_roar, ferocity, critical_eye]
+    description: "Nhánh tiến hóa: thiên về sát thương."
+  bloom_axolotl_sage:
+    name: "Axolotl Hoa Thần"
+    element: NATURE
+    rarity: EPIC
+    role: HEALER
+    entity: AXOLOTL
+    obtainable: false
+    mythic-mob: ""
+    stats: {hp: 55.1, atk: 2.7, def: 4.3, speed: 1.0}
+    skills: [nature_embrace, guardian_shield, regeneration, vitality]
+    description: "Nhánh tiến hóa: thiên về phòng thủ/hỗ trợ."
+  grove_panda:
+    name: "Trúc Linh"
+    element: NATURE
+    rarity: LEGENDARY
+    role: DPS
+    entity: PANDA
+    obtainable: true
+    mythic-mob: ""
+    stats: {hp: 30, atk: 6, def: 2, speed: 1.05}
+    skills: [nature_embrace, rally_roar, ferocity, critical_eye]
+    description: "Pet hệ NATURE độ hiếm LEGENDARY."
+    evolutions:
+      - {to: grove_panda_king, min-level: 40, souls: 1500, star: 0, materials: {MOSS_BLOCK: 16}}
+      - {to: grove_panda_sage, min-level: 40, souls: 1500, star: 0, materials: {MOSS_BLOCK: 16}}
+  grove_panda_king:
+    name: "Trúc Linh Vương"
+    element: NATURE
+    rarity: LEGENDARY
+    role: DPS
+    entity: PANDA
+    obtainable: false
+    mythic-mob: ""
+    stats: {hp: 33.0, atk: 8.1, def: 2.0, speed: 1.05}
+    skills: [nature_embrace, rally_roar, ferocity, critical_eye]
+    description: "Nhánh tiến hóa: thiên về sát thương."
+  grove_panda_sage:
+    name: "Trúc Linh Thần"
+    element: NATURE
+    rarity: LEGENDARY
+    role: HEALER
+    entity: PANDA
+    obtainable: false
+    mythic-mob: ""
+    stats: {hp: 55.1, atk: 2.7, def: 4.3, speed: 1.05}
+    skills: [nature_embrace, guardian_shield, regeneration, vitality]
+    description: "Nhánh tiến hóa: thiên về phòng thủ/hỗ trợ."

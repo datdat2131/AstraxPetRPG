@@ -1,0 +1,13 @@
+# Đặt vào plugins/MythicMobs/Skills/. Gán vào pet bằng trường mythic-skill trong skills.yml:
+#   ember_burst: {... mythic-skill: "AstraxEmberBurst" ...}
+# Khi pet dùng kỹ năng, plugin gọi BukkitAPIHelper.castSkill(pet, "AstraxEmberBurst") sau khi tự tính sát thương.
+AstraxEmberBurst:
+  Skills:
+  - effect:particles{p=flame;a=60;hs=2;vs=1;s=0.1} @self
+  - sound{s=entity.blaze.shoot;v=1} @self
+  - ignite{ticks=60} @EIR{r=5}
+
+AstraxHolyAura:
+  Skills:
+  - effect:particles{p=heart;a=20;hs=1;vs=1} @Owner
+  - effect:particles{p=end_rod;a=40;hs=2;vs=0.5} @self
