@@ -1,0 +1,32 @@
+name: AstraxPetRPG
+version: '2.0.0'
+main: vn.soulpets.SoulPetsPlugin
+api-version: '1.21'
+description: Astrax Pet RPG - pet nguyên tố, trứng, tiến hóa, dungeon, nhiệm vụ, PetDex.
+author: Astrax
+softdepend: [PlaceholderAPI, MythicMobs, MythicLib]
+# Paper tải thư viện JDBC lúc khởi động server (không cần shade vào jar)
+libraries:
+  - org.xerial:sqlite-jdbc:3.47.1.0
+  - com.mysql:mysql-connector-j:8.4.0
+commands:
+  pet:
+    description: Menu và lệnh pet của bạn.
+    usage: /pet <menu|summon|dismiss|stats|skill|evolve|equip|egg|gacha|dex|quests|top|dungeon|rename|release|help>
+    aliases: [pets]
+    permission: soulpets.use
+  petadmin:
+    description: Quản trị Astrax Pet RPG.
+    usage: /petadmin <give|set|reset|info|reload|save|debug|setdungeon|dungeon>
+    aliases: [padmin]
+    permission: soulpets.admin
+permissions:
+  soulpets.use:
+    description: Dùng lệnh /pet
+    default: true
+  soulpets.dungeon:
+    description: Tham gia dungeon
+    default: true
+  soulpets.admin:
+    description: Quản trị plugin
+    default: op
